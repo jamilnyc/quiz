@@ -99,9 +99,9 @@ func main() {
 	fmt.Println()
 
 	go func() {
-		for _, p := range problems {
+		for i, p := range problems {
 			// prompt user for input
-			fmt.Print(p.question, " = ")
+			fmt.Printf("Problem #%d: %s = ", i+1, p.question)
 			scanner.Scan()
 			userInput := scanner.Text()
 
@@ -134,5 +134,5 @@ func main() {
 	fmt.Println("Questions Answered:", questionsAnswered, "of", len(problems))
 	fmt.Println("Correct Answers:", points)
 	percent := 100 * float32(points) / float32(len(problems))
-	fmt.Printf("Score: %.1f %%", percent)
+	fmt.Printf("Grade: %.1f %%", percent)
 }
